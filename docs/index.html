@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube в аудио — Telegram-бот: слушать в фоне + текст видео</title>
+<meta name="description" content="Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="icon" href="/listen-youtube-bot/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/listen-youtube-bot/style.css">
+<link rel="canonical" href="https://gotemapak.github.io/listen-youtube-bot/">
+<link rel="alternate" hreflang="ru" href="https://gotemapak.github.io/listen-youtube-bot/">
+<link rel="alternate" hreflang="en" href="https://gotemapak.github.io/listen-youtube-bot/en/">
+<link rel="alternate" hreflang="x-default" href="https://gotemapak.github.io/listen-youtube-bot/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Listen YouTube bot">
+<meta property="og:title" content="YouTube в аудио — Telegram-бот: слушать в фоне + текст видео">
+<meta property="og:description" content="Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.">
+<meta property="og:url" content="https://gotemapak.github.io/listen-youtube-bot/">
+<meta property="og:image" content="https://gotemapak.github.io/listen-youtube-bot/img/welcome-ru.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="text/plain" title="llms.txt" href="/listen-youtube-bot/llms.txt">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://gotemapak.github.io/listen-youtube-bot/#website",
+   "url": "https://gotemapak.github.io/listen-youtube-bot/",
+   "name": "Listen YouTube bot",
+   "inLanguage": [
+    "ru",
+    "en"
+   ]
+  },
+  {
+   "@type": "SoftwareApplication",
+   "@id": "https://gotemapak.github.io/listen-youtube-bot/#app",
+   "name": "Listen YouTube — Telegram bot",
+   "alternateName": "@Listen_youtubeapp_bot",
+   "url": "https://t.me/Listen_youtubeapp_bot",
+   "applicationCategory": "MultimediaApplication",
+   "operatingSystem": "Telegram (Android, iOS, Windows, macOS, Linux, Web)",
+   "inLanguage": [
+    "ru",
+    "en"
+   ],
+   "image": "https://gotemapak.github.io/listen-youtube-bot/img/welcome-ru.png",
+   "description": "Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.",
+   "featureList": [
+    "YouTube to audio (MP3) in Telegram",
+    "Background playback and screen-off listening",
+    "Video transcript from YouTube subtitles",
+    "Playlists and videos up to 11 hours"
+   ],
+   "offers": [
+    {
+     "@type": "Offer",
+     "price": "0",
+     "priceCurrency": "RUB",
+     "description": "Free links every month"
+    },
+    {
+     "@type": "Offer",
+     "price": "299",
+     "priceCurrency": "RUB",
+     "description": "Unlimited, monthly"
+    },
+    {
+     "@type": "Offer",
+     "price": "1990",
+     "priceCurrency": "RUB",
+     "description": "Unlimited, yearly"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://gotemapak.github.io/listen-youtube-bot/",
+   "url": "https://gotemapak.github.io/listen-youtube-bot/",
+   "name": "YouTube в аудио — Telegram-бот: слушать в фоне + текст видео",
+   "description": "Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.",
+   "inLanguage": "ru",
+   "isPartOf": {
+    "@id": "https://gotemapak.github.io/listen-youtube-bot/#website"
+   },
+   "about": {
+    "@id": "https://gotemapak.github.io/listen-youtube-bot/#app"
+   },
+   "dateModified": "2026-10-07"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Это бесплатно?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Да, каждый месяц даётся несколько бесплатных ссылок. Безлимит — 299 ₽ в месяц или 1990 ₽ в год, оформляется командой /pay в боте. За каждого приглашённого друга — +5 бонусных ссылок."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как слушать YouTube с выключенным экраном?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Пришлите ссылку боту и включите полученное аудио в Telegram. Плеер Telegram продолжает играть в фоне и при заблокированном экране — на Android и на iPhone."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Нужно ли что-то устанавливать?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Нет. Достаточно Telegram на телефоне или компьютере — бот работает внутри него."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Какие ссылки поддерживаются?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Обычные видео YouTube, Shorts и плейлисты. Ссылки вида youtube.com/watch, youtu.be и m.youtube.com."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Есть ли ограничение по длине?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Видео до ~11 часов. Длинные записи приходят несколькими частями — так их принимает Telegram."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Откуда берётся текст видео?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Из субтитров YouTube: авторских, а если их нет — из автоматических. Если у ролика субтитров нет совсем, бот честно об этом скажет."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+<a class="brand" href="/listen-youtube-bot/"><img src="/listen-youtube-bot/favicon.svg" width="32" height="32" alt="">Listen YouTube</a>
+<nav><a href="/listen-youtube-bot/en/" hreflang="en" lang="en">English</a>
+<a class="btn btn-sm" href="https://t.me/Listen_youtubeapp_bot?start=site_ru">Открыть бота</a></nav>
+</header>
+<main>
+<section class="hero">
+<h1>Слушайте YouTube как подкаст — прямо в Telegram</h1>
+<p class="lead">Отправьте боту ссылку на видео или плейлист — он пришлёт аудио, которое играет в фоне и с выключенным экраном, и текст видео, который удобно отдать ChatGPT или сохранить в заметки.</p>
+<a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_ru">Открыть бота в Telegram</a>
+<p class="note">Бесплатные ссылки каждый месяц · безлимит — 299 ₽/мес или 1990 ₽/год</p>
+</section>
+<figure class="shot"><img src="/listen-youtube-bot/img/welcome-ru.png" width="1280" height="720" alt="Ссылка YouTube превращается в аудио MP3 и текстовый файл с расшифровкой в Telegram" fetchpriority="high"></figure>
+<section>
+<h2>Как это работает</h2>
+<ol class="steps">
+<li><b>Откройте бота</b><span>Нажмите кнопку — бот откроется в Telegram на телефоне или компьютере.</span></li>
+<li><b>Пришлите ссылку</b><span>Видео, Shorts или целый плейлист с YouTube — просто вставьте ссылку.</span></li>
+<li><b>Слушайте</b><span>Через минуту придёт аудио в плеере Telegram и кнопка «📄 Текст видео».</span></li>
+</ol>
+</section>
+<section>
+<h2>Что умеет бот</h2>
+<ul class="features">
+<li><b>YouTube в аудио.</b> Звуковая дорожка видео приходит MP3-файлом в плеер Telegram — слушайте без видео, в наушниках, в машине.</li>
+<li><b>Фон и выключенный экран.</b> Telegram играет аудио, когда вы свернули приложение или заблокировали телефон. Без YouTube Premium.</li>
+<li><b>Текст видео.</b> Кнопка «📄 Текст видео» присылает расшифровку файлом — чтобы попросить ИИ сделать конспект или найти нужное место.</li>
+<li><b>Длинные видео и плейлисты.</b> Видео до ~11 часов приходит частями, плейлист — целиком, трек за треком.</li>
+<li><b>Всё остаётся у вас.</b> Аудио лежит в чате: можно слушать офлайн, переслать другу или в «Избранное».</li>
+</ul>
+</section>
+<section>
+<h2>Кому это нужно</h2>
+<p>Тем, кто смотрит YouTube ушами: <a href="/listen-youtube-bot/lekcii-podkasty-audioknigi/">лекции, подкасты и интервью</a>, аудиокниги и аудиорассказы, разборы и обучающие видео. Картинка в таких роликах не важна, а держать экран включённым — неудобно и садит батарею.</p>
+<p>Если вы ищете, <a href="/listen-youtube-bot/slushat-youtube-v-fone/">как слушать YouTube в фоновом режиме</a> на Android или iPhone, бот — самый простой способ без подписок и хитростей с браузером. А если нужен <a href="/listen-youtube-bot/tekst-video-youtube/">текст видео YouTube</a> — он приходит той же кнопкой.</p>
+</section>
+<section class="faq">
+<h2>Частые вопросы</h2>
+<details><summary>Это бесплатно?</summary><p>Да, каждый месяц даётся несколько бесплатных ссылок. Безлимит — 299 ₽ в месяц или 1990 ₽ в год, оформляется командой /pay в боте. За каждого приглашённого друга — +5 бонусных ссылок.</p></details>
+<details><summary>Как слушать YouTube с выключенным экраном?</summary><p>Пришлите ссылку боту и включите полученное аудио в Telegram. Плеер Telegram продолжает играть в фоне и при заблокированном экране — на Android и на iPhone.</p></details>
+<details><summary>Нужно ли что-то устанавливать?</summary><p>Нет. Достаточно Telegram на телефоне или компьютере — бот работает внутри него.</p></details>
+<details><summary>Какие ссылки поддерживаются?</summary><p>Обычные видео YouTube, Shorts и плейлисты. Ссылки вида youtube.com/watch, youtu.be и m.youtube.com.</p></details>
+<details><summary>Есть ли ограничение по длине?</summary><p>Видео до ~11 часов. Длинные записи приходят несколькими частями — так их принимает Telegram.</p></details>
+<details><summary>Откуда берётся текст видео?</summary><p>Из субтитров YouTube: авторских, а если их нет — из автоматических. Если у ролика субтитров нет совсем, бот честно об этом скажет.</p></details>
+</section>
+<section class="final">
+<a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_ru">Открыть бота в Telegram</a>
+</section>
+<section>
+<h2>Ещё по теме</h2>
+<ul class="related">
+<li><a href="/listen-youtube-bot/slushat-youtube-v-fone/">Как слушать YouTube в фоновом режиме и с выключенным экраном</a></li>
+<li><a href="/listen-youtube-bot/tekst-video-youtube/">Текст видео YouTube: расшифровка и транскрипт по ссылке</a></li>
+<li><a href="/listen-youtube-bot/lekcii-podkasty-audioknigi/">Лекции, подкасты и аудиокниги с YouTube — слушать в Telegram</a></li>
+</ul>
+</section>
+</main>
+<footer>
+<nav><a href="/listen-youtube-bot/">Главная</a> · <a href="/listen-youtube-bot/slushat-youtube-v-fone/">YouTube в фоне</a> · <a href="/listen-youtube-bot/tekst-video-youtube/">Текст видео</a> · <a href="/listen-youtube-bot/lekcii-podkasty-audioknigi/">Лекции и подкасты</a></nav>
+<p>Telegram-бот, который превращает видео YouTube в аудио и текст. Не связан с YouTube и Google.</p>
+<p><a href="https://t.me/Listen_youtubeapp_bot">@Listen_youtubeapp_bot</a></p>
+</footer>
+</body>
+</html>

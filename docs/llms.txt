@@ -1,0 +1,29 @@
+# Listen YouTube — Telegram bot (@Listen_youtubeapp_bot)
+
+> Telegram bot that turns a YouTube link (video, Short or playlist) into an audio file in Telegram's player plus the video's transcript. Audio plays in the background and with the screen off on Android and iPhone, works offline, no YouTube Premium needed. Bot interface in Russian and English.
+
+- Bot: https://t.me/Listen_youtubeapp_bot
+- Pricing: free links every month; unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 links per invited friend
+- Limits: videos up to ~11 hours (long ones arrive in parts); playlists arrive in full
+- Transcript: from YouTube subtitles (author's, else automatic captions in the original language); none if the video has no subtitles
+- Not affiliated with YouTube or Google
+
+## Guides (English)
+- [YouTube to Audio Telegram Bot: Background Play + Transcript](https://gotemapak.github.io/listen-youtube-bot/en/): Send a YouTube link to a Telegram bot and get audio that plays in the background with the screen off, plus the video's transcript.
+- [How to Play YouTube in the Background on iPhone & Android](https://gotemapak.github.io/listen-youtube-bot/en/listen-to-youtube-in-background/): Three ways to listen to YouTube in the background on iPhone and Android: YouTube Premium, the browser trick, and a Telegram bot that sends you the audio.
+- [YouTube Video to Text: Get a Transcript from Any Link](https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/): Get the transcript of a YouTube video from its link: the text arrives as a file in Telegram, ready to paste into ChatGPT or Claude for a summary.
+- [Listen to YouTube Podcasts, Lectures & Audiobooks Offline](https://gotemapak.github.io/listen-youtube-bot/en/youtube-podcasts-lectures-offline/): Listen to YouTube lectures, podcasts and audiobooks in Telegram — in the background, offline and as whole playlists. Send a link, get audio.
+
+## Страницы (русский)
+- [YouTube в аудио — Telegram-бот: слушать в фоне + текст видео](https://gotemapak.github.io/listen-youtube-bot/): Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.
+- [Как слушать YouTube в фоновом режиме и с выключенным экраном](https://gotemapak.github.io/listen-youtube-bot/slushat-youtube-v-fone/): Три способа слушать YouTube в фоне на Android и iPhone: YouTube Premium, браузер и Telegram-бот, который присылает аудио из видео. Без подписки и сложных настроек.
+- [Текст видео YouTube: расшифровка и транскрипт по ссылке](https://gotemapak.github.io/listen-youtube-bot/tekst-video-youtube/): Как получить текст видео с YouTube по ссылке: расшифровка из субтитров файлом в Telegram. Удобно отправить в ChatGPT или Claude для конспекта.
+- [Лекции, подкасты и аудиокниги с YouTube — слушать в Telegram](https://gotemapak.github.io/listen-youtube-bot/lekcii-podkasty-audioknigi/): Слушайте лекции, подкасты, аудиокниги и аудиорассказы с YouTube в Telegram: в фоне, офлайн и целыми плейлистами. Пришлите ссылку — получите аудио.
+
+## FAQ
+- Is it free? Yes — you get free links every month. An unlimited plan is available via the /pay command in the bot. Each friend you invite gives you +5 bonus links.
+- How do I listen to YouTube with the screen off? Send the link to the bot and play the audio it returns in Telegram. Telegram's player keeps going in the background and on the lock screen, on both Android and iPhone.
+- Do I need to install anything? No. All you need is Telegram on your phone or computer — the bot runs inside it.
+- Which links work? Regular YouTube videos, Shorts and playlists: youtube.com/watch, youtu.be and m.youtube.com links.
+- Is there a length limit? Videos up to about 11 hours. Long recordings arrive in several parts — that's how Telegram accepts them.
+- Where does the transcript come from? From YouTube's subtitles: the author's own, or the automatic captions if there are none. If a video has no subtitles at all, the bot will tell you.
