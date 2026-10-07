@@ -22,7 +22,7 @@ SITE_URL = os.environ.get("SITE_URL", "https://gotemapak.github.io/listen-youtub
 BASE = urlparse(SITE_URL).path.rstrip("/")  # "" on a custom domain
 GITHUB_IO = urlparse(SITE_URL).hostname.endswith(".github.io")
 # Search-console verification tokens (paste the content="" value only).
-GOOGLE_VERIFY = os.environ.get("GOOGLE_VERIFY", "")
+GOOGLE_VERIFY = os.environ.get("GOOGLE_VERIFY", "8WulXXeHGJh3L7MC95MB2Re9TBSGH2N17WCtMh0Dzd8")
 YANDEX_VERIFY = os.environ.get("YANDEX_VERIFY", "")
 BING_VERIFY = os.environ.get("BING_VERIFY", "")
 
