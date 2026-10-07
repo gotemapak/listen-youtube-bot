@@ -1,13 +1,14 @@
 """Page copy for the site. One dict per page; `pair` links RU and EN twins
 for hreflang. Body sections are trusted HTML fragments.
 
-Keyword clusters (RU from Yandex Wordstat, May 2026; EN by search intent):
-  home       — ютуб в аудио, бот ютуб в аудио телеграм, слушать ютуб без видео
+Keyword clusters (RU: Yandex Wordstat May 2026 + Yandex/Google suggest
+Oct 2026; EN: Google US suggest Oct 2026):
+  home       — видео ютуб в аудио, бот ютуб в аудио тг, слушать ютуб без видео
                youtube to audio telegram bot, youtube audio only
   background — слушать ютуб в фоновом режиме / с выключенным экраном (андроид, айфон)
-               listen to / play youtube in background, screen off
-  transcript — текст видео ютуб, расшифровка, транскрипт по ссылке
-               youtube transcript, youtube video to text
+               listen to youtube in background (without premium, iphone, android)
+  transcript — расшифровка видео ютуб в текст по ссылке, конспект видео ютуб нейросеть
+               get transcript of youtube video, youtube video to text, summarize
   listen     — ютуб слушать лекции, подкасты, аудиокниги, аудиорассказы
                youtube podcasts / lectures / audiobooks offline
 """
@@ -61,7 +62,7 @@ PAGES = [
     {
         "lang": RU, "path": "/", "pair": "home", "src": "site_ru",
         "nav": "Главная",
-        "title": "YouTube в аудио — Telegram-бот: слушать в фоне + текст видео",
+        "title": "Видео YouTube в аудио — Telegram-бот: слушать в фоне + текст",
         "description": "Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.",
         "h1": "Слушайте YouTube как подкаст — прямо в Telegram",
         "lead": "Отправьте боту ссылку на видео или плейлист — он пришлёт аудио, которое играет в фоне и с выключенным экраном, и текст видео, который удобно отдать ChatGPT или сохранить в заметки.",
@@ -76,7 +77,7 @@ PAGES = [
 </ul>"""),
             ("Кому это нужно", """
 <p>Тем, кто смотрит YouTube ушами: <a href="/lekcii-podkasty-audioknigi/">лекции, подкасты и интервью</a>, аудиокниги и аудиорассказы, разборы и обучающие видео. Картинка в таких роликах не важна, а держать экран включённым — неудобно и садит батарею.</p>
-<p>Если вы ищете, <a href="/slushat-youtube-v-fone/">как слушать YouTube в фоновом режиме</a> на Android или iPhone, бот — самый простой способ без подписок и хитростей с браузером. А если нужен <a href="/tekst-video-youtube/">текст видео YouTube</a> — он приходит той же кнопкой.</p>"""),
+<p>Если вы ищете, <a href="/slushat-youtube-v-fone/">как слушать YouTube в фоновом режиме</a> на Android или iPhone, бот — самый простой способ без подписок и хитростей с браузером. А если нужен <a href="/rasshifrovka-video-youtube/">расшифровка видео YouTube в текст</a> — она приходит той же кнопкой.</p>"""),
         ],
         "faq": [
             ("Это бесплатно?", "Да, каждый месяц даётся несколько бесплатных ссылок. Безлимит — 299 ₽ в месяц или 1990 ₽ в год, оформляется командой /pay в боте. За каждого приглашённого друга — +5 бонусных ссылок."),
@@ -90,7 +91,7 @@ PAGES = [
     {
         "lang": RU, "path": "/slushat-youtube-v-fone/", "pair": "background", "src": "site_ru_fon",
         "nav": "YouTube в фоне",
-        "title": "Как слушать YouTube в фоновом режиме и с выключенным экраном",
+        "title": "Как слушать YouTube в фоне и с выключенным экраном без Premium",
         "description": "Три способа слушать YouTube в фоне на Android и iPhone: YouTube Premium, браузер и Telegram-бот, который присылает аудио из видео. Без подписки и сложных настроек.",
         "h1": "Как слушать YouTube в фоновом режиме и с выключенным экраном",
         "lead": "Бесплатное приложение YouTube останавливает видео, как только вы сворачиваете его или блокируете телефон. Вот рабочие способы это обойти — от официального до самого простого.",
@@ -114,16 +115,17 @@ PAGES = [
             ("Почему YouTube останавливается, когда я блокирую телефон?", "Фоновое воспроизведение в приложении YouTube — функция платной подписки Premium. Бесплатная версия ставит видео на паузу при сворачивании."),
             ("Как слушать YouTube в фоновом режиме на Android?", "Самый простой путь — отправить ссылку в Telegram-бот @Listen_youtubeapp_bot и слушать полученное аудио в Telegram. Он играет в фоне и при выключенном экране."),
             ("Как слушать YouTube в фоне на iPhone?", "Так же: пришлите ссылку боту и включите аудио в Telegram. Управлять воспроизведением можно с экрана блокировки и из Пункта управления."),
+            ("Можно ли слушать YouTube в фоне бесплатно, без Premium?", "Да: бот присылает аудио в Telegram, а Telegram играет его в фоне бесплатно. Платить нужно, только если бесплатных ссылок в месяц не хватает."),
             ("Можно ли слушать без интернета?", "Да. Аудио, пришедшее в Telegram, можно сохранить и слушать офлайн."),
         ],
     },
     {
-        "lang": RU, "path": "/tekst-video-youtube/", "pair": "transcript", "src": "site_ru_text",
-        "nav": "Текст видео",
-        "title": "Текст видео YouTube: расшифровка и транскрипт по ссылке",
-        "description": "Как получить текст видео с YouTube по ссылке: расшифровка из субтитров файлом в Telegram. Удобно отправить в ChatGPT или Claude для конспекта.",
-        "h1": "Текст видео YouTube по ссылке",
-        "lead": "Пришлите боту ссылку на видео и нажмите «📄 Текст видео» — придёт файл с расшифровкой: разбит на абзацы, с названием, каналом и описанием ролика.",
+        "lang": RU, "path": "/rasshifrovka-video-youtube/", "pair": "transcript", "src": "site_ru_text",
+        "nav": "Расшифровка видео",
+        "title": "Расшифровка видео YouTube в текст по ссылке + конспект",
+        "description": "Расшифровка видео YouTube в текст по ссылке: файл с таймкодами за несколько секунд в Telegram. Отправьте его нейросети — и получите конспект видео.",
+        "h1": "Расшифровка видео YouTube в текст по ссылке",
+        "lead": "Пришлите боту ссылку на видео и нажмите «📄 Текст видео» — придёт файл с расшифровкой: по абзацу на минуту с таймкодами [мм:сс], с названием, каналом и описанием ролика.",
         "sections": [
             ("Зачем нужен текст видео", """
 <ul>
@@ -135,7 +137,13 @@ PAGES = [
             ("Как это работает", """
 <p>Бот берёт субтитры YouTube: сначала авторские (русские или английские), а если их нет — автоматические субтитры на языке оригинала. Машинный перевод не используется, поэтому текст ближе к сказанному.</p>
 <p>Расшифровка приходит за несколько секунд — бот не скачивает видео, чтобы её сделать. Если у ролика нет субтитров вовсе, бот сообщит об этом.</p>"""),
-            ("Как отправить текст в ИИ", """
+            ("Конспект видео YouTube с помощью нейросети", """
+<p>Расшифровка — лучший вход для нейросети: ИИ читает текст целиком и не ошибается, как при «просмотре» видео по ссылке. Отправьте файл в ChatGPT, Claude, Gemini или Алису и попросите, например:</p>
+<ul>
+<li>«Сделай краткий конспект по пунктам»</li>
+<li>«Выпиши главные идеи и таймкоды, где о них говорят»</li>
+<li>«Составь вопросы для самопроверки по лекции»</li>
+</ul>
 <p><b>На телефоне:</b> зажмите сообщение с файлом → «Выбрать» → кнопка «Поделиться» → выберите ChatGPT, Claude или Заметки.<br><b>На компьютере:</b> просто перетащите файл в окно чата с ИИ.</p>"""),
         ],
         "faq": [
@@ -143,6 +151,8 @@ PAGES = [
             ("На каких языках работает?", "На языке оригинала видео. Авторские субтитры бот предпочитает на русском или английском."),
             ("Что делать, если у видео нет субтитров?", "Тогда текст получить не выйдет, но аудио бот всё равно пришлёт."),
             ("Можно получить текст длинного видео?", "Да, текст приходит одним файлом на всё видео, даже если аудио разбито на части."),
+            ("Есть ли в расшифровке таймкоды?", "Да: текст разбит на абзацы примерно по минуте, у каждого — метка времени [мм:сс]."),
+            ("Как сделать конспект видео с YouTube?", "Получите расшифровку у бота и отправьте файл нейросети (ChatGPT, Claude, Gemini, Алиса) с просьбой сделать конспект. Это быстрее и точнее, чем давать ИИ ссылку на видео."),
         ],
     },
     {
@@ -203,9 +213,9 @@ PAGES = [
     {
         "lang": EN, "path": "/en/listen-to-youtube-in-background/", "pair": "background", "src": "site_en_bg",
         "nav": "Background play",
-        "title": "How to Play YouTube in the Background on iPhone & Android",
-        "description": "Three ways to listen to YouTube in the background on iPhone and Android: YouTube Premium, the browser trick, and a Telegram bot that sends you the audio.",
-        "h1": "How to play YouTube in the background with the screen off",
+        "title": "Listen to YouTube in the Background Without Premium",
+        "description": "Three ways to listen to YouTube in the background with the screen off on iPhone and Android — including free ones that work without YouTube Premium.",
+        "h1": "How to listen to YouTube in the background (with or without Premium)",
         "lead": "The free YouTube app pauses the moment you switch apps or lock your phone. Here are the ways around it — from the official one to the simplest.",
         "sections": [
             ("Option 1. YouTube Premium", """
@@ -227,16 +237,18 @@ PAGES = [
             ("Why does YouTube stop when I lock my phone?", "Background play in the YouTube app is a YouTube Premium feature. The free app pauses when it leaves the screen."),
             ("How do I play YouTube in the background on Android?", "The simplest way is to send the link to the Telegram bot @Listen_youtubeapp_bot and play the audio in Telegram. It keeps playing in the background and with the screen off."),
             ("How do I play YouTube in the background on iPhone?", "Same way: send the link to the bot and play the audio in Telegram. You can control playback from the lock screen and Control Center."),
+            ("Can you listen to YouTube in the background without Premium?", "Yes. Send the link to the bot and play the audio in Telegram — Telegram plays it in the background for free. You only pay if the monthly free links aren't enough."),
+            ("Does audio-only use less data and battery?", "Yes. An audio file is a fraction of the size of a video stream, and nothing has to be drawn on the screen."),
             ("Can I listen offline?", "Yes. Audio you receive in Telegram can be saved and played without internet."),
         ],
     },
     {
         "lang": EN, "path": "/en/youtube-transcript/", "pair": "transcript", "src": "site_en_text",
         "nav": "Transcript",
-        "title": "YouTube Video to Text: Get a Transcript from Any Link",
-        "description": "Get the transcript of a YouTube video from its link: the text arrives as a file in Telegram, ready to paste into ChatGPT or Claude for a summary.",
-        "h1": "YouTube video to text — a transcript from any link",
-        "lead": "Send the bot a video link and tap “📄 Video text”. You get a file with the transcript split into paragraphs, plus the title, channel and description.",
+        "title": "Get the Transcript of a YouTube Video from a Link",
+        "description": "Get the full transcript of any YouTube video from its link, with timestamps, as a text file in Telegram — ready for ChatGPT, Claude or Gemini to summarize.",
+        "h1": "Get the transcript of a YouTube video from a link",
+        "lead": "Send the bot a video link and tap “📄 Video text”. You get a file with the full transcript — one paragraph per minute with [mm:ss] timestamps — plus the title, channel and description.",
         "sections": [
             ("Why get the transcript", """
 <ul>
@@ -248,7 +260,13 @@ PAGES = [
             ("How it works", """
 <p>The bot uses YouTube's subtitles: the author's own (English or Russian) first, otherwise the automatic captions in the video's original language. No machine translation, so the text stays close to what was said.</p>
 <p>The transcript arrives in seconds — the bot doesn't need to download the video. If a video has no subtitles at all, the bot will say so.</p>"""),
-            ("Sending the text to an AI", """
+            ("Summarize a YouTube video with AI", """
+<p>A transcript is the best input for an AI: it reads every word instead of guessing from a link. Drop the file into ChatGPT, Claude or Gemini and ask, for example:</p>
+<ul>
+<li>“Summarize this in bullet points”</li>
+<li>“List the key ideas with the timestamps where they're discussed”</li>
+<li>“Write quiz questions based on this lecture”</li>
+</ul>
 <p><b>On a phone:</b> press and hold the file message → Select → Share → pick ChatGPT, Claude or Notes.<br><b>On a computer:</b> drag the file into the AI chat window.</p>"""),
         ],
         "faq": [
@@ -256,6 +274,8 @@ PAGES = [
             ("Which languages are supported?", "The video's original language. For author subtitles the bot prefers English or Russian."),
             ("What if the video has no subtitles?", "Then there's no transcript, but the bot will still send the audio."),
             ("Does it work for long videos?", "Yes — the transcript comes as one file for the whole video, even when the audio is split into parts."),
+            ("Does the transcript have timestamps?", "Yes: the text is split into roughly one-minute paragraphs, each starting with an [mm:ss] timestamp."),
+            ("Can ChatGPT or Gemini get the transcript of a YouTube video?", "Not reliably from a link alone. Get the transcript file from the bot and give it to the AI — the summary will be based on what was actually said."),
         ],
     },
     {
@@ -278,7 +298,8 @@ PAGES = [
 <p>University and popular-science lectures, podcasts and interviews, audiobooks and stories, book summaries, meditations and “10 hours of rain” videos for sleep and focus.</p>"""),
         ],
         "faq": [
-            ("Can I send a whole playlist?", "Yes. Send the playlist link and the bot will deliver every track in order."),
+            ("Can you listen to YouTube podcasts offline?", "Yes. Send the episode link to the bot — the audio stays in your Telegram chat and plays without internet."),
+            ("Can I send a whole playlist?", "Yes. Send the playlist link and the bot will deliver every track in order — handy for listening to a playlist offline."),
             ("Is the audio saved?", "Yes, it stays in your chat with the bot. Forward it to Saved Messages or a friend."),
             ("Does it work for multi-hour audiobooks?", "Yes, videos up to ~11 hours are supported. A long book arrives in several parts."),
         ],

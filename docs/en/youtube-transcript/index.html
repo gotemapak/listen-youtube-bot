@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YouTube Video to Text: Get a Transcript from Any Link</title>
-<meta name="description" content="Get the transcript of a YouTube video from its link: the text arrives as a file in Telegram, ready to paste into ChatGPT or Claude for a summary.">
+<title>Get the Transcript of a YouTube Video from a Link</title>
+<meta name="description" content="Get the full transcript of any YouTube video from its link, with timestamps, as a text file in Telegram — ready for ChatGPT, Claude or Gemini to summarize.">
 <meta name="theme-color" content="#0b0b0d">
 <link rel="icon" href="/listen-youtube-bot/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/listen-youtube-bot/style.css">
 <link rel="canonical" href="https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/">
 <link rel="alternate" hreflang="en" href="https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/">
-<link rel="alternate" hreflang="ru" href="https://gotemapak.github.io/listen-youtube-bot/tekst-video-youtube/">
+<link rel="alternate" hreflang="ru" href="https://gotemapak.github.io/listen-youtube-bot/rasshifrovka-video-youtube/">
 <link rel="alternate" hreflang="x-default" href="https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Listen YouTube bot">
-<meta property="og:title" content="YouTube Video to Text: Get a Transcript from Any Link">
-<meta property="og:description" content="Get the transcript of a YouTube video from its link: the text arrives as a file in Telegram, ready to paste into ChatGPT or Claude for a summary.">
+<meta property="og:title" content="Get the Transcript of a YouTube Video from a Link">
+<meta property="og:description" content="Get the full transcript of any YouTube video from its link, with timestamps, as a text file in Telegram — ready for ChatGPT, Claude or Gemini to summarize.">
 <meta property="og:url" content="https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/">
 <meta property="og:image" content="https://gotemapak.github.io/listen-youtube-bot/img/welcome-en.png">
 <meta property="og:image:width" content="1280">
@@ -42,8 +42,8 @@
    "@type": "WebPage",
    "@id": "https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/",
    "url": "https://gotemapak.github.io/listen-youtube-bot/en/youtube-transcript/",
-   "name": "YouTube Video to Text: Get a Transcript from Any Link",
-   "description": "Get the transcript of a YouTube video from its link: the text arrives as a file in Telegram, ready to paste into ChatGPT or Claude for a summary.",
+   "name": "Get the Transcript of a YouTube Video from a Link",
+   "description": "Get the full transcript of any YouTube video from its link, with timestamps, as a text file in Telegram — ready for ChatGPT, Claude or Gemini to summarize.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://gotemapak.github.io/listen-youtube-bot/#website"
@@ -87,6 +87,22 @@
       "@type": "Answer",
       "text": "Yes — the transcript comes as one file for the whole video, even when the audio is split into parts."
      }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the transcript have timestamps?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes: the text is split into roughly one-minute paragraphs, each starting with an [mm:ss] timestamp."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can ChatGPT or Gemini get the transcript of a YouTube video?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not reliably from a link alone. Get the transcript file from the bot and give it to the AI — the summary will be based on what was actually said."
+     }
     }
    ]
   },
@@ -114,13 +130,13 @@
 <body>
 <header class="top">
 <a class="brand" href="/listen-youtube-bot/en/"><img src="/listen-youtube-bot/favicon.svg" width="32" height="32" alt="">Listen YouTube</a>
-<nav><a href="/listen-youtube-bot/tekst-video-youtube/" hreflang="ru" lang="ru">Русский</a>
+<nav><a href="/listen-youtube-bot/rasshifrovka-video-youtube/" hreflang="ru" lang="ru">Русский</a>
 <a class="btn btn-sm" href="https://t.me/Listen_youtubeapp_bot?start=site_en_text">Open the bot</a></nav>
 </header>
 <main>
 <section class="hero">
-<h1>YouTube video to text — a transcript from any link</h1>
-<p class="lead">Send the bot a video link and tap “📄 Video text”. You get a file with the transcript split into paragraphs, plus the title, channel and description.</p>
+<h1>Get the transcript of a YouTube video from a link</h1>
+<p class="lead">Send the bot a video link and tap “📄 Video text”. You get a file with the full transcript — one paragraph per minute with [mm:ss] timestamps — plus the title, channel and description.</p>
 <a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_en_text">Open the bot in Telegram</a>
 <p class="note">Free links every month · unlimited plan available in the bot</p>
 </section>
@@ -148,7 +164,13 @@
 <p>The transcript arrives in seconds — the bot doesn't need to download the video. If a video has no subtitles at all, the bot will say so.</p>
 </section>
 <section>
-<h2>Sending the text to an AI</h2>
+<h2>Summarize a YouTube video with AI</h2>
+<p>A transcript is the best input for an AI: it reads every word instead of guessing from a link. Drop the file into ChatGPT, Claude or Gemini and ask, for example:</p>
+<ul>
+<li>“Summarize this in bullet points”</li>
+<li>“List the key ideas with the timestamps where they're discussed”</li>
+<li>“Write quiz questions based on this lecture”</li>
+</ul>
 <p><b>On a phone:</b> press and hold the file message → Select → Share → pick ChatGPT, Claude or Notes.<br><b>On a computer:</b> drag the file into the AI chat window.</p>
 </section>
 <section class="faq">
@@ -157,6 +179,8 @@
 <details><summary>Which languages are supported?</summary><p>The video&#x27;s original language. For author subtitles the bot prefers English or Russian.</p></details>
 <details><summary>What if the video has no subtitles?</summary><p>Then there&#x27;s no transcript, but the bot will still send the audio.</p></details>
 <details><summary>Does it work for long videos?</summary><p>Yes — the transcript comes as one file for the whole video, even when the audio is split into parts.</p></details>
+<details><summary>Does the transcript have timestamps?</summary><p>Yes: the text is split into roughly one-minute paragraphs, each starting with an [mm:ss] timestamp.</p></details>
+<details><summary>Can ChatGPT or Gemini get the transcript of a YouTube video?</summary><p>Not reliably from a link alone. Get the transcript file from the bot and give it to the AI — the summary will be based on what was actually said.</p></details>
 </section>
 <section class="final">
 <a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_en_text">Open the bot in Telegram</a>
@@ -165,7 +189,7 @@
 <h2>Related guides</h2>
 <ul class="related">
 <li><a href="/listen-youtube-bot/en/">YouTube to Audio Telegram Bot: Background Play + Transcript</a></li>
-<li><a href="/listen-youtube-bot/en/listen-to-youtube-in-background/">How to Play YouTube in the Background on iPhone &amp; Android</a></li>
+<li><a href="/listen-youtube-bot/en/listen-to-youtube-in-background/">Listen to YouTube in the Background Without Premium</a></li>
 <li><a href="/listen-youtube-bot/en/youtube-podcasts-lectures-offline/">Listen to YouTube Podcasts, Lectures &amp; Audiobooks Offline</a></li>
 </ul>
 </section>
