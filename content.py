@@ -89,7 +89,7 @@ PAGES = [
 <p>Если вы ищете, <a href="/slushat-youtube-v-fone/">как слушать YouTube в фоновом режиме</a> на Android или iPhone, бот — самый простой способ без подписок и хитростей с браузером. А если нужен <a href="/rasshifrovka-video-youtube/">расшифровка видео YouTube в текст</a> — она приходит той же кнопкой.</p>"""),
         ],
         "faq": [
-            ("Это бесплатно?", "Первые 2 ссылки — бесплатно, чтобы попробовать. Дальше — безлимит за 299 ₽ в месяц или 1990 ₽ в год, оформляется командой /pay в боте. А если приглашённый вами друг оформит подписку, вы получите +5 бонусных ссылок и +30 дней подписки."),
+            ("Это бесплатно?", "Первые 2 ссылки — бесплатно, чтобы попробовать. Дальше — безлимит за 299 ₽ в месяц или 1990 ₽ в год, оформляется командой /pay в боте. А если приглашённый вами друг оформит подписку, вы получите +5 бонусных ссылок."),
             ("Как слушать YouTube с выключенным экраном?", "Пришлите ссылку боту и включите полученное аудио в Telegram. Плеер Telegram продолжает играть в фоне и при заблокированном экране — на Android и на iPhone."),
             ("Нужно ли что-то устанавливать?", "Нет. Достаточно Telegram на телефоне или компьютере — бот работает внутри него."),
             ("Какие ссылки поддерживаются?", "Обычные видео YouTube, Shorts и плейлисты. Ссылки вида youtube.com/watch, youtu.be и m.youtube.com."),
@@ -212,7 +212,7 @@ PAGES = [
 <p>If you're looking for <a href="/en/listen-to-youtube-in-background/">how to play YouTube in the background</a> on Android or iPhone, the bot is the easiest way — no subscription, no browser tricks. Need a <a href="/en/youtube-transcript/">YouTube transcript</a>? It comes with the same button.</p>"""),
         ],
         "faq": [
-            ("Is it free?", "Your first 2 links are free, so you can try it. After that there's an unlimited plan via the /pay command in the bot. If a friend you invite subscribes, you get +5 bonus links and +30 days of subscription."),
+            ("Is it free?", "Your first 2 links are free, so you can try it. After that there's an unlimited plan via the /pay command in the bot. If a friend you invite subscribes, you get +5 bonus links."),
             ("How do I listen to YouTube with the screen off?", "Send the link to the bot and play the audio it returns in Telegram. Telegram's player keeps going in the background and on the lock screen, on both Android and iPhone."),
             ("Do I need to install anything?", "No. All you need is Telegram on your phone or computer — the bot runs inside it."),
             ("Which links work?", "Regular YouTube videos, Shorts and playlists: youtube.com/watch, youtu.be and m.youtube.com links."),
