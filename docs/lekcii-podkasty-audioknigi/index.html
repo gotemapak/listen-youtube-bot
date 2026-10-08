@@ -51,7 +51,7 @@
    "about": {
     "@id": "https://gotemapak.github.io/listen-youtube-bot/#app"
    },
-   "dateModified": "2026-10-07"
+   "dateModified": "2026-10-08"
   },
   {
    "@type": "FAQPage",
@@ -114,10 +114,13 @@
 <section class="hero">
 <h1>Лекции, подкасты и аудиокниги с YouTube — в формате аудио</h1>
 <p class="lead">На YouTube лежат тысячи часов лекций, подкастов и аудиокниг, но слушать их через приложение неудобно. Бот превращает их в обычные аудиофайлы в Telegram.</p>
-<a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_ru_lect">Открыть бота в Telegram</a>
-<p class="note">Бесплатные ссылки каждый месяц · безлимит — 299 ₽/мес или 1990 ₽/год</p>
+<a id="hero-cta" class="btn btn-big" href="https://t.me/Listen_youtubeapp_bot?start=site_ru_lect">Открыть бота в Telegram</a>
+<p class="trust">Бесплатно · без регистрации · работает на любом телефоне с Telegram</p>
+<p id="fallback" class="fallback">Telegram не открылся? Найдите в поиске Telegram бота <b id="botname">@Listen_youtubeapp_bot</b> <button id="copy" type="button" data-done="Скопировано">Скопировать</button></p>
 </section>
-<figure class="shot"><img src="/listen-youtube-bot/img/welcome-ru.png" width="1280" height="720" alt="Ссылка YouTube превращается в аудио MP3 и текстовый файл с расшифровкой в Telegram" loading="lazy"></figure>
+<figure class="shot"><img src="/listen-youtube-bot/img/welcome-ru-640.jpg" srcset="/listen-youtube-bot/img/welcome-ru-640.jpg 640w, /listen-youtube-bot/img/welcome-ru.png 1280w" sizes="(max-width: 800px) 100vw, 760px" width="1280" height="720" alt="Ссылка YouTube превращается в аудио MP3 и текстовый файл с расшифровкой в Telegram" loading="lazy"></figure>
+
+<p class="note center">Бесплатные ссылки каждый месяц · безлимит — 299 ₽/мес или 1990 ₽/год</p>
 <section>
 <h2>Как это работает</h2>
 <ol class="steps">
@@ -158,10 +161,49 @@
 </ul>
 </section>
 </main>
+<div id="sticky" class="sticky"><a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_ru_lect">Открыть бота в Telegram</a></div>
 <footer>
 <nav><a href="/listen-youtube-bot/">Главная</a> · <a href="/listen-youtube-bot/slushat-youtube-v-fone/">YouTube в фоне</a> · <a href="/listen-youtube-bot/rasshifrovka-video-youtube/">Расшифровка видео</a> · <a href="/listen-youtube-bot/lekcii-podkasty-audioknigi/">Лекции и подкасты</a></nav>
 <p>Telegram-бот, который превращает видео YouTube в аудио и текст. Не связан с YouTube и Google.</p>
 <p><a href="https://t.me/Listen_youtubeapp_bot">@Listen_youtubeapp_bot</a></p>
 </footer>
+
+<script>
+(function(){
+  var m = /[?&](?:s|utm_campaign)=([A-Za-z0-9_-]{1,40})/.exec(location.search);
+  var links = document.querySelectorAll('a[href^="https://t.me/"]');
+  var i;
+  for (i = 0; i < links.length; i++) {
+    if (m) links[i].href = /start=/.test(links[i].href)
+      ? links[i].href.replace(/start=[^&]*/, 'start=' + m[1])
+      : links[i].href + '?start=' + m[1];
+    links[i].onclick = function(){
+      if (window.ym && window.YM_ID) { try { ym(window.YM_ID, 'reachGoal', 'tg_click'); } catch (e) {} }
+      var fb = document.getElementById('fallback');
+      if (fb) setTimeout(function(){ fb.className = 'fallback show'; }, 1500);
+    };
+  }
+  var btn = document.getElementById('copy');
+  if (btn) btn.onclick = function(){
+    var t = document.getElementById('botname');
+    var ok = false;
+    try {
+      var r = document.createRange(); r.selectNodeContents(t);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      ok = document.execCommand('copy');
+    } catch (e) {}
+    if (ok) btn.innerHTML = btn.getAttribute('data-done');
+  };
+  var hero = document.getElementById('hero-cta'), bar = document.getElementById('sticky');
+  if (hero && bar) {
+    var check = function(){
+      var r = hero.getBoundingClientRect();
+      bar.className = (r.bottom < 0) ? 'sticky show' : 'sticky';
+    };
+    window.addEventListener('scroll', check, false);
+    check();
+  }
+})();
+</script>
 </body>
 </html>

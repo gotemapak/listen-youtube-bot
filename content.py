@@ -34,6 +34,10 @@ UI = {
         "free_note": "Бесплатные ссылки каждый месяц · безлимит — 299 ₽/мес или 1990 ₽/год",
         "footer": "Telegram-бот, который превращает видео YouTube в аудио и текст. Не связан с YouTube и Google.",
         "img_alt": "Ссылка YouTube превращается в аудио MP3 и текстовый файл с расшифровкой в Telegram",
+        "trust": "Бесплатно · без регистрации · работает на любом телефоне с Telegram",
+        "fallback": "Telegram не открылся? Найдите в поиске Telegram бота",
+        "copy": "Скопировать",
+        "copied": "Скопировано",
         "nf_title": "Страница не найдена",
         "nf_text": "Такой страницы нет. Зато есть бот, который превращает YouTube в аудио:",
     },
@@ -52,6 +56,10 @@ UI = {
         "free_note": "Free links every month · unlimited plan available in the bot",
         "footer": "A Telegram bot that turns YouTube videos into audio and text. Not affiliated with YouTube or Google.",
         "img_alt": "A YouTube link turns into an MP3 audio file and a transcript text file in Telegram",
+        "trust": "Free · no sign-up · works on any phone with Telegram",
+        "fallback": "Telegram didn't open? Search Telegram for the bot",
+        "copy": "Copy",
+        "copied": "Copied",
         "nf_title": "Page not found",
         "nf_text": "This page doesn't exist. But the bot that turns YouTube into audio does:",
     },
@@ -65,6 +73,7 @@ PAGES = [
         "title": "Видео YouTube в аудио — Telegram-бот: слушать в фоне + текст",
         "description": "Пришлите ссылку на YouTube в Telegram-бот — получите аудио для прослушивания в фоне и с выключенным экраном, а также текст видео. Лекции, подкасты, плейлисты.",
         "h1": "Слушайте YouTube как подкаст — прямо в Telegram",
+        "sub": "Пришлите ссылку — бот вернёт аудио, которое играет в фоне и с выключенным экраном, и текст видео.",
         "lead": "Отправьте боту ссылку на видео или плейлист — он пришлёт аудио, которое играет в фоне и с выключенным экраном, и текст видео, который удобно отдать ChatGPT или сохранить в заметки.",
         "sections": [
             ("Что умеет бот", """
@@ -187,6 +196,7 @@ PAGES = [
         "title": "YouTube to Audio Telegram Bot: Background Play + Transcript",
         "description": "Send a YouTube link to a Telegram bot and get audio that plays in the background with the screen off, plus the video's transcript.",
         "h1": "Listen to YouTube like a podcast — right in Telegram",
+        "sub": "Send a link — get audio that plays in the background and with the screen off, plus the video's text.",
         "lead": "Send the bot a video or playlist link. It replies with audio that keeps playing in the background and with the screen off, plus the video's text — ready for ChatGPT or your notes.",
         "sections": [
             ("What the bot does", """
