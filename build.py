@@ -378,7 +378,7 @@ def llms_txt() -> str:
         "Bot interface in Russian and English.",
         "",
         f"- Bot: https://t.me/{BOT}",
-        "- Pricing: first 2 links free (one-time, no monthly refill); unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 links per invited friend",
+        "- Pricing: first 2 links free (one-time, no monthly refill); unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 bonus links and +30 days when an invited friend subscribes",
         "- Limits: videos up to ~11 hours (long ones arrive in parts); playlists arrive in full",
         "- Transcript: from YouTube subtitles (author's, else automatic captions in the original language); none if the video has no subtitles",
         "- Not affiliated with YouTube or Google",
