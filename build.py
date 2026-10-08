@@ -79,7 +79,7 @@ def json_ld(page: dict) -> str:
             "Playlists and videos up to 11 hours",
         ],
         "offers": [
-            {"@type": "Offer", "price": "0", "priceCurrency": "RUB", "description": "Free links every month"},
+            {"@type": "Offer", "price": "0", "priceCurrency": "RUB", "description": "First 2 links free (one-time)"},
             {"@type": "Offer", "price": "299", "priceCurrency": "RUB", "description": "Unlimited, monthly"},
             {"@type": "Offer", "price": "1990", "priceCurrency": "RUB", "description": "Unlimited, yearly"},
         ],
@@ -378,7 +378,7 @@ def llms_txt() -> str:
         "Bot interface in Russian and English.",
         "",
         f"- Bot: https://t.me/{BOT}",
-        "- Pricing: free links every month; unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 links per invited friend",
+        "- Pricing: first 2 links free (one-time, no monthly refill); unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 links per invited friend",
         "- Limits: videos up to ~11 hours (long ones arrive in parts); playlists arrive in full",
         "- Transcript: from YouTube subtitles (author's, else automatic captions in the original language); none if the video has no subtitles",
         "- Not affiliated with YouTube or Google",
