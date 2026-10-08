@@ -51,7 +51,7 @@
    "about": {
     "@id": "https://gotemapak.github.io/listen-youtube-bot/#app"
    },
-   "dateModified": "2026-10-07"
+   "dateModified": "2026-10-08"
   },
   {
    "@type": "FAQPage",
@@ -138,10 +138,13 @@
 <section class="hero">
 <h1>How to listen to YouTube in the background (with or without Premium)</h1>
 <p class="lead">The free YouTube app pauses the moment you switch apps or lock your phone. Here are the ways around it — from the official one to the simplest.</p>
-<a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_en_bg">Open the bot in Telegram</a>
-<p class="note">Free links every month · unlimited plan available in the bot</p>
+<a id="hero-cta" class="btn btn-big" href="https://t.me/Listen_youtubeapp_bot?start=site_en_bg">Open the bot in Telegram</a>
+<p class="trust">Free · no sign-up · works on any phone with Telegram</p>
+<p id="fallback" class="fallback">Telegram didn&#x27;t open? Search Telegram for the bot <b id="botname">@Listen_youtubeapp_bot</b> <button id="copy" type="button" data-done="Copied">Copy</button></p>
 </section>
-<figure class="shot"><img src="/listen-youtube-bot/img/welcome-en.png" width="1280" height="720" alt="A YouTube link turns into an MP3 audio file and a transcript text file in Telegram" loading="lazy"></figure>
+<figure class="shot"><img src="/listen-youtube-bot/img/welcome-en-640.jpg" srcset="/listen-youtube-bot/img/welcome-en-640.jpg 640w, /listen-youtube-bot/img/welcome-en.png 1280w" sizes="(max-width: 800px) 100vw, 760px" width="1280" height="720" alt="A YouTube link turns into an MP3 audio file and a transcript text file in Telegram" loading="lazy"></figure>
+
+<p class="note center">Free links every month · unlimited plan available in the bot</p>
 <section>
 <h2>How it works</h2>
 <ol class="steps">
@@ -193,10 +196,49 @@
 </ul>
 </section>
 </main>
+<div id="sticky" class="sticky"><a class="btn" href="https://t.me/Listen_youtubeapp_bot?start=site_en_bg">Open the bot in Telegram</a></div>
 <footer>
 <nav><a href="/listen-youtube-bot/en/">Home</a> · <a href="/listen-youtube-bot/en/listen-to-youtube-in-background/">Background play</a> · <a href="/listen-youtube-bot/en/youtube-transcript/">Transcript</a> · <a href="/listen-youtube-bot/en/youtube-podcasts-lectures-offline/">Podcasts &amp; lectures</a></nav>
 <p>A Telegram bot that turns YouTube videos into audio and text. Not affiliated with YouTube or Google.</p>
 <p><a href="https://t.me/Listen_youtubeapp_bot">@Listen_youtubeapp_bot</a></p>
 </footer>
+
+<script>
+(function(){
+  var m = /[?&](?:s|utm_campaign)=([A-Za-z0-9_-]{1,40})/.exec(location.search);
+  var links = document.querySelectorAll('a[href^="https://t.me/"]');
+  var i;
+  for (i = 0; i < links.length; i++) {
+    if (m) links[i].href = /start=/.test(links[i].href)
+      ? links[i].href.replace(/start=[^&]*/, 'start=' + m[1])
+      : links[i].href + '?start=' + m[1];
+    links[i].onclick = function(){
+      if (window.ym && window.YM_ID) { try { ym(window.YM_ID, 'reachGoal', 'tg_click'); } catch (e) {} }
+      var fb = document.getElementById('fallback');
+      if (fb) setTimeout(function(){ fb.className = 'fallback show'; }, 1500);
+    };
+  }
+  var btn = document.getElementById('copy');
+  if (btn) btn.onclick = function(){
+    var t = document.getElementById('botname');
+    var ok = false;
+    try {
+      var r = document.createRange(); r.selectNodeContents(t);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      ok = document.execCommand('copy');
+    } catch (e) {}
+    if (ok) btn.innerHTML = btn.getAttribute('data-done');
+  };
+  var hero = document.getElementById('hero-cta'), bar = document.getElementById('sticky');
+  if (hero && bar) {
+    var check = function(){
+      var r = hero.getBoundingClientRect();
+      bar.className = (r.bottom < 0) ? 'sticky show' : 'sticky';
+    };
+    window.addEventListener('scroll', check, false);
+    check();
+  }
+})();
+</script>
 </body>
 </html>

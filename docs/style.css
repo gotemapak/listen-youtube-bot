@@ -20,18 +20,20 @@ a { color: var(--tg); }
 a:hover { text-decoration-thickness: 2px; }
 .top {
   max-width: 960px; margin: 0 auto; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; text-decoration: none; }
-.brand img { border-radius: 8px; }
-.top nav { display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; color: var(--text); font-weight: 700; text-decoration: none; }
+.brand img { border-radius: 8px; margin-right: 10px; }
+.top nav { display: flex; align-items: center; }
+.top nav a + a { margin-left: 16px; }
 .top nav a:not(.btn) { color: var(--muted); text-decoration: none; }
 main { max-width: 760px; margin: 0 auto; padding: 0 20px 40px; }
-h1 { font-size: clamp(30px, 6vw, 46px); line-height: 1.15; margin: 40px 0 16px; letter-spacing: -0.02em; }
+h1 { font-size: 30px; font-size: clamp(26px, 7vw, 46px); line-height: 1.15; margin: 28px 0 12px; letter-spacing: -0.02em; }
 h2 { font-size: 26px; line-height: 1.25; margin: 0 0 14px; }
 section { margin: 48px 0; }
 .hero { text-align: center; margin-top: 16px; }
-.lead { font-size: 19px; color: var(--muted); margin: 0 auto 28px; max-width: 640px; }
+.lead { font-size: 19px; color: var(--muted); margin: 0 auto 22px; max-width: 640px; }
+.lead-below { margin: 24px auto 0; text-align: center; }
 .note { color: var(--muted); font-size: 14px; margin-top: 14px; }
 .btn {
   display: inline-block; padding: 15px 28px; border-radius: 14px;
@@ -43,7 +45,8 @@ section { margin: 48px 0; }
 .btn-sm { padding: 8px 14px; font-size: 15px; border-radius: 10px; box-shadow: none; }
 .shot { margin: 8px -20px 0; }
 .shot img { width: 100%; height: auto; display: block; border-radius: 18px; }
-.steps { list-style: none; padding: 0; display: grid; gap: 14px; counter-reset: s; }
+.steps { list-style: none; padding: 0; counter-reset: s; }
+.steps li + li { margin-top: 14px; }
 .steps li {
   counter-increment: s; background: var(--card); border: 1px solid var(--line);
   border-radius: 14px; padding: 16px 18px 16px 62px; position: relative;
@@ -51,7 +54,7 @@ section { margin: 48px 0; }
 .steps li::before {
   content: counter(s); position: absolute; left: 18px; top: 16px; width: 30px; height: 30px;
   border-radius: 50%; background: var(--red); color: #fff; font-weight: 700;
-  display: grid; place-items: center; font-size: 15px;
+  text-align: center; line-height: 30px; font-size: 15px;
 }
 .steps b { display: block; }
 .steps span { color: var(--muted); }
@@ -70,3 +73,37 @@ footer {
 }
 footer a { color: var(--muted); }
 @media (min-width: 800px) { .shot { margin: 8px 0 0; } }
+
+/* --- ad landing: first screen, fallback, sticky CTA --- */
+.btn-big { display: block; max-width: 420px; margin: 0 auto; padding: 18px 20px; font-size: 19px; text-align: center; }
+.trust { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+.center { text-align: center; }
+.fallback { display: none; margin: 14px auto 0; max-width: 420px; padding: 12px 14px; font-size: 15px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--text); }
+.fallback.show { display: block; }
+.fallback b { white-space: nowrap; }
+.fallback button { margin-left: 6px; padding: 6px 12px; border: 0; border-radius: 8px;
+  background: var(--tg); color: #fff; font: inherit; font-size: 14px; cursor: pointer; }
+.sticky { display: none; }
+@media (max-width: 799px) {
+  .sticky.show { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+    padding: 10px 12px; padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    background: rgba(11, 11, 13, .96); border-top: 1px solid var(--line); }
+  .sticky .btn { display: block; text-align: center; padding: 14px; }
+  footer { padding-bottom: 96px; }
+}
+/* small/old phones: 320–360px wide, ~570–640px tall */
+@media (max-width: 400px) {
+  body { font-size: 16px; }
+  .top { padding: 10px 14px; }
+  .brand { font-size: 15px; }
+  .brand img { width: 26px; height: 26px; margin-right: 8px; }
+  .top nav a + a { margin-left: 10px; }
+  .top .btn-sm { display: none; }
+  main { padding: 0 14px 32px; }
+  h1 { margin-top: 14px; }
+  .lead { font-size: 16px; margin-bottom: 16px; }
+  .btn-big { padding: 16px 12px; font-size: 17px; }
+  .shot { margin: 8px -14px 0; }
+  h2 { font-size: 22px; }
+}

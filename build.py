@@ -25,6 +25,8 @@ GITHUB_IO = urlparse(SITE_URL).hostname.endswith(".github.io")
 GOOGLE_VERIFY = os.environ.get("GOOGLE_VERIFY", "8WulXXeHGJh3L7MC95MB2Re9TBSGH2N17WCtMh0Dzd8")
 YANDEX_VERIFY = os.environ.get("YANDEX_VERIFY", "")
 BING_VERIFY = os.environ.get("BING_VERIFY", "")
+# Yandex Metrika counter id (digits). Empty → no counter, CTA clicks still work.
+METRIKA_ID = os.environ.get("METRIKA_ID", "")
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "docs"
@@ -166,8 +168,68 @@ def head(page: dict, title: str, description: str, canonical: str | None) -> str
                             ("msvalidate.01", BING_VERIFY)):
             if token:
                 lines.append(f'<meta name="{name}" content="{esc(token)}">')
+    if METRIKA_ID:
+        lines.append(metrika())
     lines.append("</head>")
     return "\n".join(lines)
+
+
+def metrika() -> str:
+    """Yandex Metrika tag. CTA clicks are sent as the goal `tg_click` (see CTA_JS)."""
+    return f"""<script>
+(function(m,e,t,r,i,k,a){{m[i]=m[i]||function(){{(m[i].a=m[i].a||[]).push(arguments)}};
+m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}})
+(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym({METRIKA_ID}, "init", {{clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true}});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/{METRIKA_ID}" style="position:absolute; left:-9999px;" alt=""></div></noscript>"""
+
+
+# ES5 only (old Android browsers / iOS 9+): no arrows, const, fetch or
+# IntersectionObserver. Does three things:
+#  - ad source passthrough: /?s=ya_lectures → every bot link gets
+#    ?start=ya_lectures, so /stats shows which campaign brought the user
+#    (Telegram allows [A-Za-z0-9_-], max 64);
+#  - Metrika goal `tg_click` on every bot link + reveal the "Telegram didn't
+#    open?" hint (Telegram is throttled in Russia; some clicks go nowhere);
+#  - sticky bottom CTA on phones once the hero button has scrolled away.
+CTA_JS = """<script>
+(function(){
+  var m = /[?&](?:s|utm_campaign)=([A-Za-z0-9_-]{1,40})/.exec(location.search);
+  var links = document.querySelectorAll('a[href^="https://t.me/"]');
+  var i;
+  for (i = 0; i < links.length; i++) {
+    if (m) links[i].href = /start=/.test(links[i].href)
+      ? links[i].href.replace(/start=[^&]*/, 'start=' + m[1])
+      : links[i].href + '?start=' + m[1];
+    links[i].onclick = function(){
+      if (window.ym && window.YM_ID) { try { ym(window.YM_ID, 'reachGoal', 'tg_click'); } catch (e) {} }
+      var fb = document.getElementById('fallback');
+      if (fb) setTimeout(function(){ fb.className = 'fallback show'; }, 1500);
+    };
+  }
+  var btn = document.getElementById('copy');
+  if (btn) btn.onclick = function(){
+    var t = document.getElementById('botname');
+    var ok = false;
+    try {
+      var r = document.createRange(); r.selectNodeContents(t);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      ok = document.execCommand('copy');
+    } catch (e) {}
+    if (ok) btn.innerHTML = btn.getAttribute('data-done');
+  };
+  var hero = document.getElementById('hero-cta'), bar = document.getElementById('sticky');
+  if (hero && bar) {
+    var check = function(){
+      var r = hero.getBoundingClientRect();
+      bar.className = (r.bottom < 0) ? 'sticky show' : 'sticky';
+    };
+    window.addEventListener('scroll', check, false);
+    check();
+  }
+})();
+</script>"""
 
 
 def header(page: dict, switch_path: str) -> str:
@@ -196,6 +258,9 @@ def footer(page: dict) -> str:
 def render(page: dict) -> str:
     lang, ui = page["lang"], UI[page["lang"]]
     cta = f'<a class="btn" href="{bot_link(page["src"])}">{ui["cta"]}</a>'
+    hero_cta = f'<a id="hero-cta" class="btn btn-big" href="{bot_link(page["src"])}">{ui["cta"]}</a>'
+    sub = page.get("sub")
+    lead_below = f'<p class="lead lead-below">{esc(page["lead"])}</p>' if sub else ""
     steps = "\n".join(f"<li><b>{esc(t)}</b><span>{esc(d)}</span></li>" for t, d in ui["steps"])
     sections = "\n".join(
         f"<section>\n<h2>{esc(h)}</h2>{rebase(body)}\n</section>" for h, body in page["sections"]
@@ -215,11 +280,14 @@ def render(page: dict) -> str:
 <main>
 <section class="hero">
 <h1>{esc(page["h1"])}</h1>
-<p class="lead">{esc(page["lead"])}</p>
-{cta}
-<p class="note">{esc(ui["free_note"])}</p>
+<p class="lead">{esc(sub or page["lead"])}</p>
+{hero_cta}
+<p class="trust">{esc(ui["trust"])}</p>
+<p id="fallback" class="fallback">{esc(ui["fallback"])} <b id="botname">@{BOT}</b> <button id="copy" type="button" data-done="{esc(ui["copied"])}">{esc(ui["copy"])}</button></p>
 </section>
-<figure class="shot"><img src="{link(f"/img/welcome-{lang}.png")}" width="1280" height="720" alt="{esc(ui["img_alt"])}" {img_attrs}></figure>
+<figure class="shot"><img src="{link(f"/img/welcome-{lang}-640.jpg")}" srcset="{link(f"/img/welcome-{lang}-640.jpg")} 640w, {link(f"/img/welcome-{lang}.png")} 1280w" sizes="(max-width: 800px) 100vw, 760px" width="1280" height="720" alt="{esc(ui["img_alt"])}" {img_attrs}></figure>
+{lead_below}
+<p class="note center">{esc(ui["free_note"])}</p>
 <section>
 <h2>{ui["how"]}</h2>
 <ol class="steps">
@@ -241,7 +309,10 @@ def render(page: dict) -> str:
 </ul>
 </section>
 </main>
+<div id="sticky" class="sticky"><a class="btn" href="{bot_link(page["src"])}">{ui["cta"]}</a></div>
 {footer(page)}
+{"<script>window.YM_ID=" + METRIKA_ID + ";</script>" if METRIKA_ID else ""}
+{CTA_JS}
 </body>
 </html>
 """
