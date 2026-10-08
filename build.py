@@ -148,7 +148,7 @@ def head(page: dict, title: str, description: str, canonical: str | None) -> str
             f'<link rel="canonical" href="{canonical}">',
             f'<link rel="alternate" hreflang="{lang}" href="{canonical}">',
             f'<link rel="alternate" hreflang="{other["lang"]}" href="{url(other["path"])}">',
-            f'<link rel="alternate" hreflang="x-default" href="{url(page["path"] if lang == EN else other["path"])}">',
+            f'<link rel="alternate" hreflang="x-default" href="{url(page["path"] if lang == RU else other["path"])}">',
             f'<meta property="og:type" content="website">',
             f'<meta property="og:site_name" content="Listen YouTube bot">',
             f'<meta property="og:title" content="{esc(title)}">',
@@ -343,7 +343,7 @@ def sitemap() -> str:
     items = []
     for p in PAGES:
         other = twin(p)
-        x_default = p if p["lang"] == EN else other
+        x_default = p if p["lang"] == RU else other
         items.append(f"""<url>
 <loc>{url(p["path"])}</loc>
 <lastmod>{TODAY}</lastmod>
