@@ -3,7 +3,7 @@
 > Telegram bot that turns a YouTube link (video, Short or playlist) into an audio file in Telegram's player plus the video's transcript. Audio plays in the background and with the screen off on Android and iPhone, works offline, no YouTube Premium needed. Bot interface in Russian and English.
 
 - Bot: https://t.me/Listen_youtubeapp_bot
-- Pricing: first 2 links free (one-time, no monthly refill); unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 links per invited friend
+- Pricing: first 2 links free (one-time, no monthly refill); unlimited 299 RUB/month or 1990 RUB/year (/pay in the bot); +5 bonus links and +30 days when an invited friend subscribes
 - Limits: videos up to ~11 hours (long ones arrive in parts); playlists arrive in full
 - Transcript: from YouTube subtitles (author's, else automatic captions in the original language); none if the video has no subtitles
 - Not affiliated with YouTube or Google
@@ -21,7 +21,7 @@
 - [Лекции, подкасты и аудиокниги с YouTube — слушать в Telegram](https://gotemapak.github.io/listen-youtube-bot/lekcii-podkasty-audioknigi/): Слушайте лекции, подкасты, аудиокниги и аудиорассказы с YouTube в Telegram: в фоне, офлайн и целыми плейлистами. Пришлите ссылку — получите аудио.
 
 ## FAQ
-- Is it free? Your first 2 links are free, so you can try it. After that there's an unlimited plan via the /pay command in the bot. Each friend you invite gives you +5 bonus links.
+- Is it free? Your first 2 links are free, so you can try it. After that there's an unlimited plan via the /pay command in the bot. If a friend you invite subscribes, you get +5 bonus links and +30 days of subscription.
 - How do I listen to YouTube with the screen off? Send the link to the bot and play the audio it returns in Telegram. Telegram's player keeps going in the background and on the lock screen, on both Android and iPhone.
 - Do I need to install anything? No. All you need is Telegram on your phone or computer — the bot runs inside it.
 - Which links work? Regular YouTube videos, Shorts and playlists: youtube.com/watch, youtu.be and m.youtube.com links.
