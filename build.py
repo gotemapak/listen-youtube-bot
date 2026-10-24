@@ -23,10 +23,10 @@ BASE = urlparse(SITE_URL).path.rstrip("/")  # "" on a custom domain
 GITHUB_IO = urlparse(SITE_URL).hostname.endswith(".github.io")
 # Search-console verification tokens (paste the content="" value only).
 GOOGLE_VERIFY = os.environ.get("GOOGLE_VERIFY", "8WulXXeHGJh3L7MC95MB2Re9TBSGH2N17WCtMh0Dzd8")
-YANDEX_VERIFY = os.environ.get("YANDEX_VERIFY", "")
+YANDEX_VERIFY = os.environ.get("YANDEX_VERIFY", "311461a2c8f6c26f")
 BING_VERIFY = os.environ.get("BING_VERIFY", "")
 # Yandex Metrika counter id (digits). Empty → no counter, CTA clicks still work.
-METRIKA_ID = os.environ.get("METRIKA_ID", "")
+METRIKA_ID = os.environ.get("METRIKA_ID", "113767924")
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "docs"
