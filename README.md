@@ -22,7 +22,7 @@
 | Google Search Console | подтверждён meta-тегом (`GOOGLE_VERIFY`), sitemap отправлен | ресурс `https://gotemapak.github.io/listen-youtube-bot/` |
 | Bing Webmaster Tools | импортирован из GSC, sitemap отправлен | bing.com/webmasters |
 | Яндекс Метрика | счётчик **113767924**, цель `tg_click` (JS-событие, клик по кнопке «в бота») | metrika.yandex.ru |
-| Яндекс.Вебмастер | код `311461a2c8f6c26f`: meta-тег + файл `static/yandex_311461a2c8f6c26f.html` | webmaster.yandex.ru |
+| Яндекс.Вебмастер | права подтверждены 2026-10-24; код `311461a2c8f6c26f`: meta-тег + файл `static/yandex_311461a2c8f6c26f.html` | webmaster.yandex.ru |
 | IndexNow | ключ в `static/<key>.txt` | отправка: `POST https://api.indexnow.org/indexnow` |
 
 `METRIKA_ID`, `YANDEX_VERIFY` и `GOOGLE_VERIFY` прописаны в `build.py` как значения по умолчанию, поэтому `python3 build.py` без переменных их сохраняет. Не обнуляй их при пересборке, иначе пропадут счётчик и подтверждения.
